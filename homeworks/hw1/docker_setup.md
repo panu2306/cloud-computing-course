@@ -49,3 +49,48 @@ $ sudo systemctl enable docker.service
 
 $ sudo systemctl enable containerd.service
 ```
+
+
+# Configuration of Ubuntu Image and SysBench on Top of it - 
+1. First, pull the latest image of ubuntu available using - 
+```
+$ docker pull ubuntu:
+```
+Below screenshot shows the pulling of ubuntu image - 
+![docker-pull-ubuntu](images/ubuntu_pull.png)
+
+2. List out the images present to verify the docker has pulled ubuntu image - 
+```
+$ docker image ls
+``` 
+Below screenshot shows the list of available images - 
+![docker-image-ls](images/docker-image-ls.png)
+
+3. Now, lets launch the ubuntu container - 
+```
+$ docker container run -it ubuntu:latest /bin/bash
+```
+Below screenshot shows the run of ubuntu container - 
+![docker-run-ubuntu](images/docker-run-ubuntu.png)
+
+4. Now, to install sysbench, use following set of commands inside ubuntu container - 
+```
+$ curl -s https://packagecloud.io/install/repositories/akopytov/sysbench/script.deb.sh | sudo bash
+$ apt -y install sysbench
+```
+> ##### Note - 
+In the ubuntu container, since it comes with very few packages, when we run above commands, we get an error showing - 
+![curl-sudo-not-found](images/curl-sudo-missing.png)
+This is obvious because the image does not come up with these two commands. So, we need to install them first using -\
+$ apt install curl\
+$ apt install sudo
+
+5. After sysbench install command completes, verify the installation - 
+```
+$ sysbench --version
+```
+Below screenshot shows the version of sysbench installed in ubuntu container - 
+![sysbench-version](images/sysbench-version.png)
+
+
+
