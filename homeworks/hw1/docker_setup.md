@@ -32,7 +32,7 @@ $ sudo systemctl status docker
 ```
 $ sudo docker run hello-world
 ```
-Here's the screenshot of hello-world run in my machine - 
+&nbsp; Here's the screenshot of hello-world run in my machine - 
 ![docker-hello-world-image-run-result](images/hello-world-result.png)
 
 9. Now, if one wants to avoid using sudo before docker commands, we can eliminate it by adding an user to docker group - 
@@ -56,22 +56,22 @@ $ sudo systemctl enable containerd.service
 ```
 $ docker pull ubuntu:
 ```
-Below screenshot shows the pulling of ubuntu image - 
-![docker-pull-ubuntu](images/ubuntu_pull.png)
+&nbsp; Below screenshot shows the pulling of ubuntu image -\
+![docker-pull-ubuntu](images/ubuntu-pull.png)\
 
 2. List out the images present to verify the docker has pulled ubuntu image - 
 ```
 $ docker image ls
 ``` 
-Below screenshot shows the list of available images - 
-![docker-image-ls](images/docker-image-ls.png)
+&nbsp; Below screenshot shows the list of available images -\ 
+![docker-image-ls](images/docker-image-ls.png)\
 
 3. Now, lets launch the ubuntu container - 
 ```
 $ docker container run -it ubuntu:latest /bin/bash
 ```
-Below screenshot shows the run of ubuntu container - 
-![docker-run-ubuntu](images/docker-run-ubuntu.png)
+&nbsp; Below screenshot shows the run of ubuntu container -\ 
+![docker-run-ubuntu](images/docker-run-ubuntu.png)\
 
 4. Now, to install sysbench, use following set of commands inside ubuntu container - 
 ```
@@ -79,8 +79,8 @@ $ curl -s https://packagecloud.io/install/repositories/akopytov/sysbench/script.
 $ apt -y install sysbench
 ```
 > ##### Note - 
-In the ubuntu container, since it comes with very few packages, when we run above commands, we get an error showing - 
-![curl-sudo-not-found](images/curl-sudo-missing.png)
+In the ubuntu container, since it comes with very few packages, when we run above commands, we get an error showing -\
+![curl-sudo-not-found](images/curl-sudo-missing.png)\
 This is obvious because the image does not come up with these two commands. So, we need to install them first using -\
 $ apt install curl\
 $ apt install sudo
@@ -89,8 +89,8 @@ $ apt install sudo
 ```
 $ sysbench --version
 ```
-Below screenshot shows the version of sysbench installed in ubuntu container - 
-![sysbench-version](images/sysbench-version.png)
+&nbsp; Below screenshot shows the version of sysbench installed in ubuntu container -\ 
+![sysbench-version](images/sysbench-version.png)\
 
 
 
